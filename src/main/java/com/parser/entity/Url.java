@@ -25,5 +25,9 @@ public class Url {
             cascade = CascadeType.MERGE, orphanRemoval = true)
     private Collection<UniqueWordStatistics> words = new LinkedList<>();
 
+    @Override
+    public String toString() {
+        return "id=" + id + ": "+ url;
 
+    }
 }

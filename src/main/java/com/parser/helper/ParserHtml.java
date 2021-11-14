@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -24,11 +23,14 @@ public class ParserHtml {
     @Getter
     @Setter
     private String urlForParse;
-    private Map<String, Integer> uniqueWords = new HashMap<>();
-    @Autowired
-    private UniqueWordStatisticsRepository uniqueWordStatisticsRepository;
-    private List<UniqueWordStatistics> uniqueWordStatisticsList;
+    Map<String, Integer> uniqueWords = new HashMap<>();
 
+    private final UniqueWordStatisticsRepository uniqueWordStatisticsRepository;
+    private  List<UniqueWordStatistics> uniqueWordStatisticsList;
+
+
+    //    @Autowired
+//    Repository repository;
     public String getTextFromPage() {
 
         String textFromPage = null;
@@ -63,6 +65,7 @@ public class ParserHtml {
                         .count(entry.getValue()).url(url).build()).collect(Collectors.toList());
 
         System.out.println();
+//        repository.add(uniqueWordStatisticsList)
         uniqueWordStatisticsRepository.saveAll(uniqueWordStatisticsList);
         return uniqueWordStatisticsList;
     }

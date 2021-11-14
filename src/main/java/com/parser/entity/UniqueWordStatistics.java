@@ -21,6 +21,12 @@ public class UniqueWordStatistics {
     private String word;
     @Column(name = "count")
     private int count;
+
+    @Override
+    public String toString() {
+        return word + "-" + count +'\'' ;
+    }
+
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(name = "fk_url")
     private Url url;
