@@ -8,8 +8,8 @@
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.5.2</version>
     </parent>
-    <groupId>org.example</groupId>
-    <artifactId>HTMLparser</artifactId>
+    <groupId>org.beglyarov.project</groupId>
+    <artifactId>web-word-extractor</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
