@@ -1,4 +1,4 @@
-package com.parser.Controller;
+package com.parser.controller;
 
 import com.parser.dto.ServiceUrl;
 import com.parser.entity.Url;
