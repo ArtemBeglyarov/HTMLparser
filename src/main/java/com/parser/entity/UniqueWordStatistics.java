@@ -1,5 +1,6 @@
 package com.parser.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -29,5 +30,6 @@ public class UniqueWordStatistics {
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(name = "fk_url")
+    @JsonIgnore
     private Url url;
 }

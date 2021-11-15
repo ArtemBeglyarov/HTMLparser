@@ -14,13 +14,14 @@ public class ServiceUrl {
 
     private final ParserHtml parserHtml;
 
-    public void createUrlFromRequestUrl(Url urlRequest) {
+    public Url createUrlFromRequestUrl(Url urlRequest) {
         Url url = new Url();
         url.setUrl(urlRequest.getUrl());
-        urlRepository.save(url);
         parserHtml.setUrlForParse(url.getUrl());
         parserHtml.splitString(parserHtml.getTextFromPage());
+        urlRepository.save(url);
         parserHtml.outputSortedUniqueWords(url);
+        return getUrl(url.getId());
     }
 
     public Url getUrl(Long id) {

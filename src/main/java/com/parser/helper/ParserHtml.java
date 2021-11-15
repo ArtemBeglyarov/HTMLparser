@@ -28,9 +28,6 @@ public class ParserHtml {
     private final UniqueWordStatisticsRepository uniqueWordStatisticsRepository;
     private  List<UniqueWordStatistics> uniqueWordStatisticsList;
 
-
-    //    @Autowired
-//    Repository repository;
     public String getTextFromPage() {
 
         String textFromPage = null;
@@ -64,8 +61,6 @@ public class ParserHtml {
                         .word(entry.getKey())
                         .count(entry.getValue()).url(url).build()).collect(Collectors.toList());
 
-        System.out.println();
-//        repository.add(uniqueWordStatisticsList)
         uniqueWordStatisticsRepository.saveAll(uniqueWordStatisticsList);
         return uniqueWordStatisticsList;
     }
